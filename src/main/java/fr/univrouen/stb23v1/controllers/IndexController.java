@@ -9,4 +9,3 @@ public class IndexController {
         return "Hello stb23 !";
     }
 }
-//git@github.com:Sedixed/stb23v1.git
