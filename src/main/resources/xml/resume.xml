@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <stbs xmlns:th="http://www.thymeleaf.org">
     <stb th:each="stb:${stbs}">
-        <id>${stb.id}</id>
-        <title>${stb.title}</title>
-        <description>${stb.description}</description>
-        <validationDate>${stb.validationDate}</validationDate>
-        <clientName>${stb.clientName}</clientName>
+        <id th:utext="${stb.id}"></id>
+        <title th:utext="${stb.title}"></title>
+        <description th:utext="${stb.description}"></description>
+        <validationDate th:utext="${stb.validationDate}"></validationDate>
+        <clientName th:utext="${stb.clientName}"></clientName>
     </stb>
 </stbs>

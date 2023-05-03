@@ -16,11 +16,11 @@
 
     <tr th:each="stb:${stbs}">
       <!-- TODO -->
-      <td>th:utext="${stb.id}"</td>
-      <td>th:utext="${stb.title}"</td>
-      <td>th:utext="${stb.description}"</td>
-      <td>th:utext="${stb.validationDate}"</td>
-      <td>th:utext="${stb.clientName}"</td>
+      <td><span th:utext="${stb.id}"></span></td>
+      <td><span th:utext="${stb.title}"></span></td>
+      <td><span th:utext="${stb.description}"></span></td>
+      <td><span th:utext="${stb.validationDate}"></span></td>
+      <td><span th:utext="${stb.clientName}"></span></td>
     </tr>
 
   </table>
