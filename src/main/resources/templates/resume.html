@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spécifications</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Titre</th>
+      <th>Description</th>
+      <th>Date de validation</th>
+      <th>Nom du client</th>
+    </tr>
+
+    <tr th:each="stb:${stbs}">
+      <!-- TODO -->
+      <td>th:utext="${stb.id}"</td>
+      <td>th:utext="${stb.title}"</td>
+      <td>th:utext="${stb.description}"</td>
+      <td>th:utext="${stb.validationDate}"</td>
+      <td>th:utext="${stb.clientName}"</td>
+    </tr>
+
+  </table>
+
+</body>
+</html>

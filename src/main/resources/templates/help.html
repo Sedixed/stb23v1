@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aide</title>
+</head>
+<body>
+    <h1>Opérations supportées</h1>
+
+    <ul>
+        <!-- GET -->
+        <li>
+            <div>
+                <p>GET : /</p>
+                <p>Retour : HTML</p>
+                <p>Détail : Page d'accueil de l'application.</p>
+            </div>
+        </li>
+
+        <li>
+            <div>
+                <p>GET : /help</p>
+                <p>Retour : HTML</p>
+                <p>Détail : Page d'aide (celle-ci).</p>
+            </div>
+        </li>
+
+        <li>
+            <div>
+                <p>GET : /stb23/resume/xml</p>
+                <p>Retour : XML</p>
+                <p>Détail : Liste des spécifications stockées.</p>
+            </div>
+        </li>
+
+        <li>
+            <div>
+                <p>GET : /stb23/resume</p>
+                <p>Retour : HTML</p>
+                <p>Détail : Liste des spécifications stockées.</p>
+            </div>
+        </li>
+
+        <li>
+            <div>
+                <p>GET : /stb23/xml/{id}</p>
+                <p>Retour : XML</p>
+                <p>Détail : Contenu complet de la spécification d'identifiant {id}.</p>
+            </div>
+        </li>
+
+        <li>
+            <div>
+                <p>GET : /stb23/html/{id}</p>
+                <p>Retour : HTML</p>
+                <p>Détail : Contenu complet de la spécification d'identifiant {id}.</p>
+            </div>
+        </li>
+
+        <!-- POST -->
+        <li>
+            <div>
+                <p>POST : /stb23/insert</p>
+                <p>Transmis : Flux XML décrivant la spécification stb23 à ajouter, conforme au schéma XSD.</p>
+                <p>Retour : XML</p>
+                <p>Opération : Insère la spécification en base de données si celle-ci est valide et non présente.</p>
+            </div>
+        </li>
+        <!-- DELETE -->
+        <li>
+            <div>
+                <p>DELETE : /stb23/delete/{id}</p>
+                <p>Retour : XML</p>
+                <p>Opération : Suppression de la spécification dont l’identifiant est {id}.</p>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>
