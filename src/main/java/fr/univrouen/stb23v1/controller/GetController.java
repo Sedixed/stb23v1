@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.print.attribute.standard.Media;
 import java.util.List;
 
 @RestController
@@ -19,24 +20,13 @@ public class GetController {
     private STBService stbService;
 
     @GetMapping(value = "/stb23/resume/xml", produces = MediaType.APPLICATION_XML_VALUE)
-    public String getXmlResume(Model model) {
-        // temporaire
-        List<String> stbs = null;
-        model.addAttribute("stbs", stbs);
-        for (STB stb : stbService.getSTBs()) {
-            System.out.println(stb);
-        }
-
-        // voir comment choisir le xml
-        return "resume";
+    public String getXmlResume() {
+        return stbService.getXMLResume();
     }
 
-    @GetMapping("/stb23/resume")
-    public String getResume(Model model) {
-        // temporaire
-        List<String> stbs = null;
-        model.addAttribute("stbs", stbs);
-        return "resume";
+    @GetMapping(value = "/stb23/resume", produces =  MediaType.TEXT_HTML_VALUE)
+    public String getResume() {
+        return "aled";
     }
 
     @GetMapping(value = "/stb23/xml/{id}", produces = MediaType.APPLICATION_XML_VALUE)
@@ -44,9 +34,9 @@ public class GetController {
         return stbService.getXMLFromStbId(id);
     }
 
-    @GetMapping("/stb23/html/{id}")
+    @GetMapping(value = "/stb23/html/{id}", produces = MediaType.TEXT_HTML_VALUE)
     public String getHTMLSpecification(@PathVariable("id") int id) {
-        return "";
+        return stbService.getHTMLFromStbId(id);
     }
 
 

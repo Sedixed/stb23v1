@@ -41,6 +41,7 @@ public class STBValidator {
         if (src == null) {
             return false;
         }
+
         XmlErrorHandler xsdErrorHandler = new XmlErrorHandler();
         try {
             Schema schema = factory.newSchema(new File(src.getFile()));
