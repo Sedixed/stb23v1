@@ -1,11 +1,26 @@
 package fr.univrouen.stb23v1.model;
 
+import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+@Entity
+@Table(name = "Feature")
 @XmlType(propOrder = {"description", "priority", "delivery", "comment"})
 public class Feature {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    // DATABASE LINKS
+
+    @OneToOne
+    @JoinColumn(referencedColumnName = "id")
+    private Features features;
+
+    // ATTRIBUTES
 
     // The feature name attribute
     @XmlAttribute

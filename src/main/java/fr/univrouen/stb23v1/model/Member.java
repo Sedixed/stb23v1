@@ -1,17 +1,33 @@
 package fr.univrouen.stb23v1.model;
 
+import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "Member")
 @XmlType(propOrder = {"person", "mail", "function"})
 public class Member {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    // DEPENDENCIES
+
     // Member person element
     @XmlElement
+    @OneToOne(mappedBy = "member", cascade=CascadeType.ALL)
     private Person person;
+
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id")
+    private Team team;
+
+    // ATTRIBUTES
 
     // The member mail
     @XmlElement

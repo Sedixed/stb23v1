@@ -2,15 +2,40 @@ package fr.univrouen.stb23v1.model;
 
 import jakarta.xml.bind.annotation.*;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 
+@Entity
+@Table(name = "STB")
 @XmlRootElement(name = "stb")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class STB implements Serializable {
     private static final long serialVersionUID = 1L;
 
     // STB ID in db
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    // DEPENDENCIES
+
+    // STB client
+    @XmlElement
+    @OneToOne(mappedBy = "stb", cascade=CascadeType.ALL)
+    private Client client;
+
+    // STB team
+    @XmlElement
+    @OneToOne(mappedBy = "stb", cascade=CascadeType.ALL)
+    private Team team;
+
+    // STB features
+    @XmlElement
+    @OneToOne(mappedBy = "stb", cascade=CascadeType.ALL)
+    private Features features;
+
+    // ATTRIBUTES
 
     // STB title
     @XmlElement
@@ -27,18 +52,6 @@ public class STB implements Serializable {
     // STB description
     @XmlElement
     private String description;
-
-    // STB client
-    @XmlElement
-    private Client client;
-
-    // STB team
-    @XmlElement
-    private Team team;
-
-    // STB features
-    @XmlElement
-    private Features features;
 
     // STB constructor
     public STB(Integer id, String title, String date) {

@@ -1,13 +1,29 @@
 package fr.univrouen.stb23v1.controllers;
 
+import fr.univrouen.stb23v1.model.STB;
+import fr.univrouen.stb23v1.service.STBService;
+import fr.univrouen.stb23v1.utils.ResponseDetail;
+import fr.univrouen.stb23v1.utils.ResponseStatus;
+import fr.univrouen.stb23v1.utils.STBValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PostController {
+
+    @Autowired
+    private STBService stbService;
+
     @PostMapping(value = "/stb23/insert", consumes = "application/xml")
-    public String insert(@RequestBody String stream) {
-        return "";
+    public String insert(@RequestBody STB stb) {
+        STBValidator stbv = new STBValidator();
+        if (stbv.validateXMLSchema(String.valueOf(stb))) {
+            stbService.addSTB(stb);
+            return "oui !!! ^^";
+        } else {
+            return "<result><status>" + ResponseStatus.ERROR + "</status><detail>" + ResponseDetail.INVALID + "</detail></result>";
+        }
     }
 
     /*@RequestMapping(value = "/testpost", method = RequestMethod.POST, consumes = "application/xml")

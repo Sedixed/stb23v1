@@ -1,9 +1,28 @@
 package fr.univrouen.stb23v1.model;
 
+import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlValue;
 
+@Entity
+@Table(name = "Person")
 public class Person {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    // DEPENDENCIES
+
+    @OneToOne
+    @JoinColumn(referencedColumnName = "id",  nullable = true)
+    private Client client;
+
+    @OneToOne
+    @JoinColumn(referencedColumnName = "id",  nullable = true)
+    private Member member;
+
+    // ATTRIBUTES
 
     // Person name
     @XmlValue

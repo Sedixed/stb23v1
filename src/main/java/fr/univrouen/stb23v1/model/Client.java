@@ -1,21 +1,38 @@
 package fr.univrouen.stb23v1.model;
 
+import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import jakarta.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "Client")
 @XmlType(propOrder = {"entity", "person", "mail", "tel"})
 public class Client {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    // DEPENDENCIES
+
+    @OneToOne
+    @JoinColumn(referencedColumnName = "id")
+    private STB stb;
+
+    // Client person
+    @XmlElement
+    @OneToOne(mappedBy = "client", cascade=CascadeType.ALL)
+    private Person person;
+
+    // ATTRIBUTES
 
     // Client entity name
     @XmlElement
     private String entity;
-
-    // Client person
-    @XmlElement
-    private Person person;
 
     // Client mail
     @XmlElement

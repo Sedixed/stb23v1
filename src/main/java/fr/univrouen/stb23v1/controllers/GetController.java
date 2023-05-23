@@ -1,6 +1,8 @@
 package fr.univrouen.stb23v1.controllers;
 
 import fr.univrouen.stb23v1.model.STB;
+import fr.univrouen.stb23v1.service.STBService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,11 +12,17 @@ import java.util.List;
 @RestController
 public class GetController {
 
+    @Autowired
+    private STBService stbService;
+
     @GetMapping(value = "/stb23/resume/xml", produces = MediaType.APPLICATION_XML_VALUE)
     public String getXmlResume(Model model) {
         // temporaire
         List<String> stbs = null;
         model.addAttribute("stbs", stbs);
+        for (STB stb : stbService.getAllSTB()) {
+            System.out.println(stb);
+        }
 
         // voir comment choisir le xml
         return "resume";
@@ -38,6 +46,9 @@ public class GetController {
         return "";
     }
 
+
+    /*
+
     @GetMapping("/stbid")
     public String getRSSinXML(
             @RequestParam(value = "id") String texte
@@ -45,9 +56,7 @@ public class GetController {
         return ("Détail de la STB n°" + texte);
     }
 
-
-
-    /*@GetMapping("/test")
+    @GetMapping("/test")
     public String getRSSinXML(
             @RequestParam(value = "id") String id,
             @RequestParam(value = "titre") String titre
