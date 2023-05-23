@@ -5,18 +5,9 @@ import fr.univrouen.stb23v1.repository.STBRepository;
 import fr.univrouen.stb23v1.util.HtmlConverter;
 import fr.univrouen.stb23v1.util.ResponseStatus;
 import jakarta.xml.bind.JAXB;
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.util.JAXBSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.stream.StreamSource;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -85,13 +76,25 @@ public class STBService {
         return sb.toString();
     }
 
+    /**
+     * @return The resume of the STBs as an HTML stream.
+     */
+    public String getHTMLResume() {
+        return HtmlConverter.xmlToHtmlStream(getXMLResume(), HtmlConverter.STB238_XSLT_RESUME);
+    }
+
+    /**
+     * TODO éditer cas erreur
+     * @param id The STB id.
+     * @return The HTML stream from the corresponding STB, identified by its id.
+     */
     public String getHTMLFromStbId(int id) {
         STB stb = stbRepository.findById("" + id).orElse(null);
         if (stb == null) {
             return "(en html)<result><id>" + id + "</id><status>" + ResponseStatus.ERROR + "</status></result>";
         }
 
-        return HtmlConverter.stbToHtmlStream(stb);
+        return HtmlConverter.xmlToHtmlStream(getXMLFromStbId(id), "stb23");
     }
 
     /**

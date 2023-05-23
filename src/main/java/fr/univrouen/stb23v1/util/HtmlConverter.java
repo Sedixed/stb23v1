@@ -1,33 +1,46 @@
 package fr.univrouen.stb23v1.util;
 
-import fr.univrouen.stb23v1.model.STB;
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.util.JAXBSource;
-
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
+import java.io.StringReader;
 import java.io.StringWriter;
 
+/**
+ * XML to HTML stream converter.
+ */
 public class HtmlConverter {
 
-    public static String stbToHtmlStream(STB stb) {
+    /**
+     * The stb23 xslt file (html production).
+     */
+    public static final String STB23_XSLT = "stb23.xslt";
+
+    /**
+     * The stb23 resume xslt file (html production).
+     */
+    public static final String STB238_XSLT_RESUME = "stb23resume.xslt";
+
+    /**
+     * Converts an XML stream to the HTML stream according to the XSLT file given from its name.
+     * @param xml The XML stream as a string
+     * @param xsltFilename The XSLT filename.
+     * @return The HTML stream.
+     */
+    public static String xmlToHtmlStream(String xml, String xsltFilename) {
         TransformerFactory tf = TransformerFactory.newInstance();
-        StreamSource xslt = new StreamSource("src/main/resources/xslt/stb23.xslt");
+        StreamSource xslt = new StreamSource("src/main/resources/xslt/" + xsltFilename);
         StringWriter sw = new StringWriter();
+        StreamSource xmlSource = new StreamSource(new StringReader(xml));
         try {
             Transformer transformer = tf.newTransformer(xslt);
-            // Source
-            JAXBContext jc = JAXBContext.newInstance(STB.class);
-            JAXBSource source = new JAXBSource(jc, stb);
             // Result
             StreamResult result = new StreamResult(sw);
             // Transform
-            transformer.transform(source, result);
-        } catch (JAXBException | TransformerException e) {
+            transformer.transform(xmlSource, result);
+        } catch (TransformerException e) {
             System.out.println(e.getMessage());
             return null;
         }

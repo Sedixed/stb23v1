@@ -3,16 +3,19 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 
 <xsl:output method="html" indent="yes" encoding="UTF-8"/>
+
 <xsl:template name="main" match="/">
-  <xsl:element name="html">
-  	<xsl:element name="head">
-	  	<xsl:element name="title">Ok</xsl:element>
-  	</xsl:element>
+	<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
+  	<xsl:element name="html">
+  		<xsl:element name="head">
+	  		<xsl:element name="title">STB </xsl:element>
+  		</xsl:element>
 		<xsl:element name="body">
 	    	<xsl:element name="h2"><xsl:value-of select="stb/title"/></xsl:element>
 	    	<xsl:element name="p">(V
 	    		<xsl:value-of select="stb/version"/> - 
-	    		<xsl:value-of select="stb/date"/>
+	    		<xsl:value-of select="stb/date"/>xxxxxx
+				<xsl:value-of select="stb/id"/>
 	    		)
 	    	</xsl:element>
 	    	<xsl:element name="p"><xsl:value-of select="stb/description"/></xsl:element>

@@ -36,7 +36,7 @@ public class FileLoader {
             throw new IllegalArgumentException();
         }
         FileLoader fl = new FileLoader();
-        return fl.loadFile("templates", filename);
+        return fl.loadFile("html", filename);
     }
 
     /**
