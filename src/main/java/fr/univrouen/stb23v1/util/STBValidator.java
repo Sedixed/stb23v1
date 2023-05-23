@@ -15,14 +15,25 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * STB validator helper.
+ */
 public class STBValidator {
 
+    /**
+     * Path to XSD file.
+     */
     public static final String STB23_XSD_PATH = "xsd/stb23.xsd";
 
+    /**
+     * Exceptions list.
+     */
     private List<SAXParseException> exceptions = new ArrayList<>();
 
-    public STBValidator() {}
-
+    /**
+     * @param xmlStream The XML stream to validate against a XSD.
+     * @return True if the XMl stream is valid, false otherwise.
+     */
     public boolean validateXMLSchema(String xmlStream) {
 
         SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
@@ -45,6 +56,9 @@ public class STBValidator {
         return this.exceptions.isEmpty();
     }
 
+    /**
+     * @return The exceptions list.
+     */
     public List<SAXParseException> getExceptions() {
         return exceptions;
     }

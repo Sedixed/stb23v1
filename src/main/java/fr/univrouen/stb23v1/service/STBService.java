@@ -20,6 +20,9 @@ import java.util.List;
 @Service
 public class STBService {
 
+    /**
+     * Autowired STB repository.
+     */
     @Autowired
     private STBRepository stbRepository;
 
@@ -40,6 +43,11 @@ public class STBService {
         return stbRepository.findById("" + id).orElse(null);
     }
 
+    /**
+     *
+     * @param id The STB id.
+     * @return The XMl stream from the corresponding STB, identified by its id.
+     */
     public String getXMLFromStbId(int id)  {
         STB stb = stbRepository.findById("" + id).orElse(null);
         if (stb == null) {

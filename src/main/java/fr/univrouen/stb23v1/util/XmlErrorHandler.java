@@ -6,14 +6,24 @@ import org.xml.sax.SAXParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Custom XML error handler.
+ */
 public class XmlErrorHandler implements ErrorHandler {
 
+    /**
+     * Exceptions list.
+     */
     private List<SAXParseException> exceptions;
+
 
     public XmlErrorHandler() {
         this.exceptions = new ArrayList<>();
     }
 
+    /**
+     * @return The exceptions list.
+     */
     public List<SAXParseException> getExceptions() {
         return exceptions;
     }

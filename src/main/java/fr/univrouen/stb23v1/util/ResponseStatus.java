@@ -1,5 +1,8 @@
 package fr.univrouen.stb23v1.util;
 
+/**
+ * Contains the response status.
+ */
 public enum ResponseStatus {
     ERROR("ERROR"),
     INSERTED("INSERTED"),
@@ -7,7 +10,7 @@ public enum ResponseStatus {
 
     private final String verbose;
 
-    private ResponseStatus(String verbose) {
+    ResponseStatus(String verbose) {
         this.verbose = verbose;
     }
 
