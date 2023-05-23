@@ -94,7 +94,7 @@ public class STBService {
             return "(en html)<result><id>" + id + "</id><status>" + ResponseStatus.ERROR + "</status></result>";
         }
 
-        return HtmlConverter.xmlToHtmlStream(getXMLFromStbId(id), "stb23");
+        return HtmlConverter.xmlToHtmlStream(getXMLFromStbId(id), HtmlConverter.STB23_XSLT);
     }
 
     /**
