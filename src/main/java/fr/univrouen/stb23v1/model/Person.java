@@ -2,24 +2,29 @@ package fr.univrouen.stb23v1.model;
 
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlValue;
 
 @Entity
 @Table(name = "Person")
+
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @XmlTransient
     private Integer id;
 
     // DEPENDENCIES
 
     @OneToOne
     @JoinColumn(referencedColumnName = "id",  nullable = true)
+    @XmlTransient
     private Client client;
 
     @OneToOne
     @JoinColumn(referencedColumnName = "id",  nullable = true)
+    @XmlTransient
     private Member member;
 
     // ATTRIBUTES
@@ -45,27 +50,28 @@ public class Person {
     public Person() {
     }
 
-    public String getName() {
-        return name;
+    public Integer getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Client getClient() {
+        return client;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public String getLastname() {
         return lastname;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
 }

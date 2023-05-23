@@ -1,8 +1,7 @@
 package fr.univrouen.stb23v1.model;
 
 import jakarta.persistence.*;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +9,12 @@ import java.util.List;
 @Entity
 @Table(name = "Member")
 @XmlType(propOrder = {"person", "mail", "function"})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @XmlTransient
     private Integer id;
 
     // DEPENDENCIES
@@ -25,6 +26,7 @@ public class Member {
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")
+    @XmlTransient
     private Team team;
 
     // ATTRIBUTES
@@ -46,27 +48,24 @@ public class Member {
     public Member() {
     }
 
+    public Integer getId() {
+        return id;
+    }
+
     public Person getPerson() {
         return person;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public Team getTeam() {
+        return team;
     }
 
     public String getMail() {
         return mail;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
     public List<String> getFunction() {
         return function;
     }
 
-    public void setFunction(List<String> function) {
-        this.function = function;
-    }
 }

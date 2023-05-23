@@ -1,8 +1,7 @@
 package fr.univrouen.stb23v1.model;
 
 import jakarta.persistence.*;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.*;
 
 import jakarta.persistence.Id;
 import java.util.ArrayList;
@@ -11,16 +10,19 @@ import java.util.List;
 @Entity
 @Table(name = "Client")
 @XmlType(propOrder = {"entity", "person", "mail", "tel"})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @XmlTransient
     private Integer id;
 
     // DEPENDENCIES
 
     @OneToOne
     @JoinColumn(referencedColumnName = "id")
+    @XmlTransient
     private STB stb;
 
     // Client person
@@ -52,36 +54,28 @@ public class Client {
     public Client() {
     }
 
-    public String getEntity() {
-        return entity;
+    public Integer getId() {
+        return id;
     }
 
-    public void setEntity(String entity) {
-        this.entity = entity;
+    public STB getStb() {
+        return stb;
     }
 
     public Person getPerson() {
         return person;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public String getEntity() {
+        return entity;
     }
 
     public List<String> getMail() {
         return mail;
     }
 
-    public void setMail(List<String> mail) {
-        this.mail = mail;
-    }
-
     public List<String> getTel() {
         return tel;
-    }
-
-    public void setTel(List<String> tel) {
-        this.tel = tel;
     }
 
 }

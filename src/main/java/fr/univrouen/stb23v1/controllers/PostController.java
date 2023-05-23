@@ -5,9 +5,13 @@ import fr.univrouen.stb23v1.service.STBService;
 import fr.univrouen.stb23v1.utils.ResponseDetail;
 import fr.univrouen.stb23v1.utils.ResponseStatus;
 import fr.univrouen.stb23v1.utils.STBValidator;
+import jakarta.xml.bind.JAXB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.xml.sax.SAXParseException;
+
+import java.io.StringReader;
 
 @RestController
 public class PostController {
@@ -16,11 +20,11 @@ public class PostController {
     private STBService stbService;
 
     @PostMapping(value = "/stb23/insert", consumes = "application/xml")
-    public String insert(@RequestBody STB stb) {
+    public String insert(@RequestBody String xmlStream) {
         STBValidator stbv = new STBValidator();
-        if (stbv.validateXMLSchema(String.valueOf(stb))) {
-            stbService.addSTB(stb);
-            return "oui !!! ^^";
+        if (stbv.validateXMLSchema(xmlStream)) {
+            STB stb = stbService.addSTB(xmlStream);
+            return "<result><id>" + stb.getId() + "</id><status>" + ResponseStatus.INSERTED + "</status></result>";
         } else {
             return "<result><status>" + ResponseStatus.ERROR + "</status><detail>" + ResponseDetail.INVALID + "</detail></result>";
         }

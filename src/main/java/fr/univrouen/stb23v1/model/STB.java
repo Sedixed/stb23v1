@@ -9,13 +9,13 @@ import java.io.Serializable;
 @Entity
 @Table(name = "STB")
 @XmlRootElement(name = "stb")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class STB implements Serializable {
     private static final long serialVersionUID = 1L;
 
     // STB ID in db
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @XmlTransient
     private Integer id;
 
     // DEPENDENCIES
@@ -64,72 +64,36 @@ public class STB implements Serializable {
     public STB() {
     }
 
-    @Override
-    public String toString() {
-        return ("STB (" + id.toString() + ") du " + date + "\n" + title + "\n");
-    }
-
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Double getVersion() {
-        return version;
-    }
-
-    public void setVersion(Double version) {
-        this.version = version;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public Client getClient() {
         return client;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
     public Team getTeam() {
         return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
     }
 
     public Features getFeatures() {
         return features;
     }
 
-    public void setFeatures(Features features) {
-        this.features = features;
+    public String getTitle() {
+        return title;
     }
+
+    public Double getVersion() {
+        return version;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
 }
