@@ -12,31 +12,6 @@ import java.io.Serializable;
 public class STB implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    // STB ID in db
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @XmlTransient
-    private Integer id;
-
-    // DEPENDENCIES
-
-    // STB client
-    @XmlElement
-    @OneToOne(mappedBy = "stb", cascade=CascadeType.ALL)
-    private Client client;
-
-    // STB team
-    @XmlElement
-    @OneToOne(mappedBy = "stb", cascade=CascadeType.ALL)
-    private Team team;
-
-    // STB features
-    @XmlElement
-    @OneToOne(mappedBy = "stb", cascade=CascadeType.ALL)
-    private Features features;
-
-    // ATTRIBUTES
-
     // STB title
     @XmlElement
     private String title;
@@ -53,13 +28,29 @@ public class STB implements Serializable {
     @XmlElement
     private String description;
 
-    // STB constructor
-    public STB(Integer id, String title, String date) {
-        super();
-        this.id = id;
-        this.title = title;
-        this.date = date;
-    }
+    // STB ID in db
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @XmlTransient
+    private Integer id;
+
+    // STB client
+    @XmlElement
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "clientId")
+    private Client client;
+
+    // STB team
+    @XmlElement
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "teamId")
+    private Team team;
+
+    // STB features
+    @XmlElement
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "featuresId")
+    private Features features;
 
     public STB() {
     }

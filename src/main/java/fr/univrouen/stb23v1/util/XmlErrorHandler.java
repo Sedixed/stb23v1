@@ -1,7 +1,6 @@
-package fr.univrouen.stb23v1.utils;
+package fr.univrouen.stb23v1.util;
 
 import org.xml.sax.ErrorHandler;
-import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 import java.util.ArrayList;

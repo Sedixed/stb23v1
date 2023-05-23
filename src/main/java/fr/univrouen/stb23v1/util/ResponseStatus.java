@@ -1,4 +1,4 @@
-package fr.univrouen.stb23v1.utils;
+package fr.univrouen.stb23v1.util;
 
 public enum ResponseStatus {
     ERROR("ERROR"),

@@ -17,19 +17,11 @@ public class Member {
     @XmlTransient
     private Integer id;
 
-    // DEPENDENCIES
-
     // Member person element
     @XmlElement
-    @OneToOne(mappedBy = "member", cascade=CascadeType.ALL)
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "personId")
     private Person person;
-
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "id")
-    @XmlTransient
-    private Team team;
-
-    // ATTRIBUTES
 
     // The member mail
     @XmlElement
@@ -38,12 +30,6 @@ public class Member {
     // The functions handled by this member
     @XmlElement
     private List<String> function = new ArrayList<>();
-
-    public Member(Person person, String mail, List<String> function) {
-        this.person = person;
-        this.mail = mail;
-        this.function = function;
-    }
 
     public Member() {
     }
@@ -56,9 +42,6 @@ public class Member {
         return person;
     }
 
-    public Team getTeam() {
-        return team;
-    }
 
     public String getMail() {
         return mail;

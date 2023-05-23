@@ -20,30 +20,16 @@ public class Team {
     @XmlTransient
     private Integer id;
 
-    // DEPENDENCIES
-    @OneToOne
-    @JoinColumn(referencedColumnName = "id")
-    @XmlTransient
-    private STB stb;
-
     // Team members
     @XmlElement
-    @OneToMany(mappedBy = "team", cascade=CascadeType.ALL)
+    @OneToMany(targetEntity=Member.class, cascade=CascadeType.ALL)
     private List<Member> member = new ArrayList<>();
-
-    public Team(List<Member> member) {
-        this.member = member;
-    }
 
     public Team() {
     }
 
     public Integer getId() {
         return id;
-    }
-
-    public STB getStb() {
-        return stb;
     }
 
     public List<Member> getMember() {

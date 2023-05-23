@@ -7,27 +7,12 @@ import jakarta.xml.bind.annotation.XmlValue;
 
 @Entity
 @Table(name = "Person")
-
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @XmlTransient
     private Integer id;
-
-    // DEPENDENCIES
-
-    @OneToOne
-    @JoinColumn(referencedColumnName = "id",  nullable = true)
-    @XmlTransient
-    private Client client;
-
-    @OneToOne
-    @JoinColumn(referencedColumnName = "id",  nullable = true)
-    @XmlTransient
-    private Member member;
-
-    // ATTRIBUTES
 
     // Person name
     @XmlValue
@@ -41,25 +26,11 @@ public class Person {
     @XmlAttribute
     private String lastname;
 
-    public Person(String name, String gender, String lastname) {
-        this.name = name;
-        this.gender = gender;
-        this.lastname = lastname;
-    }
-
     public Person() {
     }
 
     public Integer getId() {
         return id;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public Member getMember() {
-        return member;
     }
 
     public String getName() {

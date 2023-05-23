@@ -18,19 +18,11 @@ public class Client {
     @XmlTransient
     private Integer id;
 
-    // DEPENDENCIES
-
-    @OneToOne
-    @JoinColumn(referencedColumnName = "id")
-    @XmlTransient
-    private STB stb;
-
     // Client person
     @XmlElement
-    @OneToOne(mappedBy = "client", cascade=CascadeType.ALL)
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "personId")
     private Person person;
-
-    // ATTRIBUTES
 
     // Client entity name
     @XmlElement
@@ -44,22 +36,11 @@ public class Client {
     @XmlElement
     private List<String> tel = new ArrayList<>();
 
-    public Client(String entity, Person person, List<String> mail, List<String> tel) {
-        this.entity = entity;
-        this.person = person;
-        this.mail = mail;
-        this.tel = tel;
-    }
-
     public Client() {
     }
 
     public Integer getId() {
         return id;
-    }
-
-    public STB getStb() {
-        return stb;
     }
 
     public Person getPerson() {

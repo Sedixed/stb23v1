@@ -1,4 +1,4 @@
-package fr.univrouen.stb23v1.utils;
+package fr.univrouen.stb23v1.util;
 
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;

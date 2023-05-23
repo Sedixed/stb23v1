@@ -1,8 +1,9 @@
-package fr.univrouen.stb23v1.controllers;
+package fr.univrouen.stb23v1.controller;
 
-import fr.univrouen.stb23v1.utils.FileLoader;
+import fr.univrouen.stb23v1.util.FileLoader;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 @RestController
 public class IndexController {
     @GetMapping("/")

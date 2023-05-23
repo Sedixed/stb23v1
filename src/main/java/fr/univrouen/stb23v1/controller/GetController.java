@@ -1,7 +1,10 @@
-package fr.univrouen.stb23v1.controllers;
+package fr.univrouen.stb23v1.controller;
 
 import fr.univrouen.stb23v1.model.STB;
 import fr.univrouen.stb23v1.service.STBService;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
@@ -20,7 +23,7 @@ public class GetController {
         // temporaire
         List<String> stbs = null;
         model.addAttribute("stbs", stbs);
-        for (STB stb : stbService.getAllSTB()) {
+        for (STB stb : stbService.getSTBs()) {
             System.out.println(stb);
         }
 
@@ -37,8 +40,8 @@ public class GetController {
     }
 
     @GetMapping(value = "/stb23/xml/{id}", produces = MediaType.APPLICATION_XML_VALUE)
-    public String getXMLSpecification(@PathVariable("id") int id) {
-        return "";
+    public String getXMLSpecification(@PathVariable("id") int id) throws JAXBException {
+        return stbService.getXMLFromStbId(id);
     }
 
     @GetMapping("/stb23/html/{id}")

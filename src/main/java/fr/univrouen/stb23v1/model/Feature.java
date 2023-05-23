@@ -14,15 +14,6 @@ public class Feature {
     @XmlTransient
     private Integer id;
 
-    // DATABASE LINKS
-
-    @OneToOne
-    @JoinColumn(referencedColumnName = "id")
-    @XmlTransient
-    private Features features;
-
-    // ATTRIBUTES
-
     // The feature name attribute
     @XmlAttribute
     private String name;
@@ -51,27 +42,11 @@ public class Feature {
     @XmlElement
     private String comment;
 
-    public Feature(String name, Integer section, Integer number, String description,
-                   Integer priority, String delivery, String comment
-    ) {
-        this.name = name;
-        this.section = section;
-        this.number = number;
-        this.description = description;
-        this.priority = priority;
-        this.delivery = delivery;
-        this.comment = comment;
-    }
-
     public Feature() {
     }
 
     public Integer getId() {
         return id;
-    }
-
-    public Features getFeatures() {
-        return features;
     }
 
     public String getName() {
