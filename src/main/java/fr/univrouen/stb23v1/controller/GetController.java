@@ -25,7 +25,7 @@ public class GetController {
     }
 
     @GetMapping(value = "/stb23/xml/{id}", produces = MediaType.APPLICATION_XML_VALUE)
-    public String getXMLSpecification(@PathVariable("id") int id) throws JAXBException {
+    public String getXMLSpecification(@PathVariable("id") int id) {
         return stbService.getXMLFromStbId(id);
     }
 
