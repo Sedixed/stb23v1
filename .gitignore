@@ -34,3 +34,4 @@ build/
 
 ### Annexes ###
 /annexes
+!/src/main/resources/application.properties
