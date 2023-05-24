@@ -49,7 +49,10 @@ public class STBService {
     public String getXMLFromStbId(int id)  {
         STB stb = stbRepository.findById("" + id).orElse(null);
         if (stb == null) {
-            return "<result><id>" + id + "</id><status>" + ResponseStatus.ERROR + "</status></result>";
+            return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
+                    "<result>" +
+                    "<id>" + id + "</id><status>" + ResponseStatus.ERROR + "</status>" +
+                    "</result>";
         }
         StringWriter sw = new StringWriter();
         JAXB.marshal(stb, sw);
@@ -62,6 +65,7 @@ public class STBService {
     public String getXMLResume() {
         List<STB> stbs = getSTBs();
         StringBuilder sb = new StringBuilder();
+        sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         sb.append("<result>");
         for (STB stb : stbs) {
             sb.append("<stb>");
