@@ -7,7 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
+@CrossOrigin
 @RestController
 public class GetController {
 
@@ -24,11 +24,13 @@ public class GetController {
         return stbService.getHTMLResume();
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping(value = "/stb23/xml/{id}", produces = MediaType.APPLICATION_XML_VALUE)
     public String getXMLSpecification(@PathVariable("id") int id) {
         return stbService.getXMLFromStbId(id);
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping(value = "/stb23/html/{id}", produces = MediaType.TEXT_HTML_VALUE)
     public String getHTMLSpecification(@PathVariable("id") int id) {
         return stbService.getHTMLFromStbId(id);

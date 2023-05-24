@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.StringReader;
 
 
+@CrossOrigin
 @RestController
 public class PostController {
 
