@@ -60,7 +60,7 @@ public class STBService {
     }
 
     /**
-     * @return The resume of the STBs as a XML stream.
+     * @return The resume of the STBs as an XML stream.
      */
     public String getXMLResume() {
         List<STB> stbs = getSTBs();
