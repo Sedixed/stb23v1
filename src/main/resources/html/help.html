@@ -2,58 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Aide</title>
+    <title>Help</title>
 </head>
 <body>
-    <h1>Opérations supportées</h1>
+    <h1>Supported operations</h1>
 
     <ul>
         <!-- GET -->
         <li>
             <div>
                 <p>GET : /</p>
-                <p>Retour : HTML</p>
-                <p>Détail : Page d'accueil de l'application.</p>
+                <p>Result type : HTML</p>
+                <p>Detail : Home page.</p>
             </div>
         </li>
 
         <li>
             <div>
                 <p>GET : /help</p>
-                <p>Retour : HTML</p>
-                <p>Détail : Page d'aide (celle-ci).</p>
+                <p>Result type : HTML</p>
+                <p>Detail : Help page (this one).</p>
             </div>
         </li>
 
         <li>
             <div>
                 <p>GET : /stb23/resume/xml</p>
-                <p>Retour : XML</p>
-                <p>Détail : Liste des spécifications stockées.</p>
+                <p>Result type : XML</p>
+                <p>Detail : Stocked STB list.</p>
             </div>
         </li>
 
         <li>
             <div>
                 <p>GET : /stb23/resume</p>
-                <p>Retour : HTML</p>
-                <p>Détail : Liste des spécifications stockées.</p>
+                <p>Result type : HTML</p>
+                <p>Detail : Stocked STB list.</p>
             </div>
         </li>
 
         <li>
             <div>
                 <p>GET : /stb23/xml/{id}</p>
-                <p>Retour : XML</p>
-                <p>Détail : Contenu complet de la spécification d'identifiant {id}.</p>
+                <p>Result type : XML</p>
+                <p>Detail : Whole STB content (the one having the id {id}).</p>
             </div>
         </li>
 
         <li>
             <div>
                 <p>GET : /stb23/html/{id}</p>
-                <p>Retour : HTML</p>
-                <p>Détail : Contenu complet de la spécification d'identifiant {id}.</p>
+                <p>Result type : HTML</p>
+                <p>Detail : Whole STB content (the one having the id {id}).</p>
             </div>
         </li>
 
@@ -61,17 +61,17 @@
         <li>
             <div>
                 <p>POST : /stb23/insert</p>
-                <p>Transmis : Flux XML décrivant la spécification stb23 à ajouter, conforme au schéma XSD.</p>
-                <p>Retour : XML</p>
-                <p>Opération : Insère la spécification en base de données si celle-ci est valide et non présente.</p>
+                <p>Given : XML stream describing the STB to add.</p>
+                <p>Result type : XML</p>
+                <p>Operation : Inserts the given STB in database if valid and not duplicate.</p>
             </div>
         </li>
         <!-- DELETE -->
         <li>
             <div>
                 <p>DELETE : /stb23/delete/{id}</p>
-                <p>Retour : XML</p>
-                <p>Opération : Suppression de la spécification dont l’identifiant est {id}.</p>
+                <p>Result type : XML</p>
+                <p>Operation : Deletes the STB of id {id}.</p>
             </div>
         </li>
     </ul>

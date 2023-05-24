@@ -80,21 +80,20 @@ public class STBService {
      * @return The resume of the STBs as an HTML stream.
      */
     public String getHTMLResume() {
-        return HtmlConverter.xmlToHtmlStream(getXMLResume(), HtmlConverter.STB238_XSLT_RESUME);
+        return HtmlConverter.xmlToHtmlStream(getXMLResume(), HtmlConverter.STB23_XSLT_RESUME);
     }
 
     /**
-     * TODO éditer cas erreur
      * @param id The STB id.
      * @return The HTML stream from the corresponding STB, identified by its id.
      */
     public String getHTMLFromStbId(int id) {
         STB stb = stbRepository.findById("" + id).orElse(null);
+        String xslt = HtmlConverter.STB23_XSLT;
         if (stb == null) {
-            return "(en html)<result><id>" + id + "</id><status>" + ResponseStatus.ERROR + "</status></result>";
+            xslt = HtmlConverter.STB23_XSLT_ERROR;
         }
-
-        return HtmlConverter.xmlToHtmlStream(getXMLFromStbId(id), HtmlConverter.STB23_XSLT);
+        return HtmlConverter.xmlToHtmlStream(getXMLFromStbId(id), xslt);
     }
 
     /**

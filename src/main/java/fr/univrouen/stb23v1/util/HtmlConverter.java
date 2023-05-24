@@ -21,7 +21,12 @@ public class HtmlConverter {
     /**
      * The stb23 resume xslt file (html production).
      */
-    public static final String STB238_XSLT_RESUME = "stb23resume.xslt";
+    public static final String STB23_XSLT_RESUME = "stb23resume.xslt";
+
+    /**
+     * The stb23 error xslt file (html production).
+     */
+    public static final String STB23_XSLT_ERROR = "stb23error.xslt";
 
     /**
      * Converts an XML stream to the HTML stream according to the XSLT file given from its name.
