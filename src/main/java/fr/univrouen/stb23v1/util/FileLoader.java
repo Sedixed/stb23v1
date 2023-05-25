@@ -14,20 +14,6 @@ import java.nio.charset.StandardCharsets;
 public class FileLoader {
 
     /**
-     * Loads and returns an XML content from a filename.
-     * @param filename The XML filename.
-     * @return The XML content.
-     */
-    public static String loadXMLFile(String filename) {
-        if (filename == null) {
-            throw new IllegalArgumentException();
-        }
-        FileLoader fl = new FileLoader();
-        return fl.loadFile("xml", filename);
-
-    }
-
-    /**
      * Loads and returns an HTML content from a filename.
      * @param filename The HTML filename.
      * @return The HTML content.

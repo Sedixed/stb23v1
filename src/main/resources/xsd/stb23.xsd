@@ -35,7 +35,7 @@
 	
 	<xsd:simpleType name="mailType">
 		<xsd:restriction base="xsd:string">
-			<xsd:pattern value="[^.]([a-zA-Z\d._-][^.])+@[^.]([a-zA-Z\d._-][^.])+.[a-zA-Z]{2,3}" />
+			<xsd:pattern value="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z]{2,3}" />
 		</xsd:restriction>
 	</xsd:simpleType>
 
@@ -62,7 +62,7 @@
 		<xsd:sequence>
 			<xsd:element name="entity" type="str32" />
 			<xsd:element name="person" type="personType" />
-			<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:choice maxOccurs="unbounded">
 				<xsd:element name="tel" type="telType" />
 				<xsd:element name="mail" type="mailType" />
 			</xsd:choice>
@@ -82,7 +82,7 @@
 		<xsd:sequence>
 			<xsd:element name="person" type="personType" />
 			<xsd:element name="mail" type="mailType" />
-			<xsd:element name="function" type="str128" minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="function" type="str128" maxOccurs="unbounded" />
 		</xsd:sequence>
 	</xsd:complexType>
 	
@@ -94,7 +94,7 @@
 
 	<xsd:complexType name="featuresType">
 		<xsd:sequence>
-			<xsd:element name="feature" type="featureType" minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="feature" type="featureType" maxOccurs="unbounded" />
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -102,8 +102,8 @@
 		<xsd:sequence>
 			<xsd:element name="description" type="str128" />
 			<xsd:element name="priority" type="intBetween0And10" />
-			<xsd:element name="delivery" type="xsd:date" />
-			<xsd:element name="comment" type="xsd:string"  />
+			<xsd:element name="delivery" type="xsd:date" minOccurs="0" />
+			<xsd:element name="comment" type="xsd:string" minOccurs="0" />
 		</xsd:sequence>
 		<xsd:attribute name="name" type="str32" use="required" />
 		<xsd:attribute name="section" type="xsd:integer" use="required" />
