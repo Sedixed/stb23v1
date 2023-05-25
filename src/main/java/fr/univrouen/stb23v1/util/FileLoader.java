@@ -6,6 +6,7 @@ import org.springframework.core.io.Resource;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Handles XML and HTML file loading.
@@ -36,6 +37,7 @@ public class FileLoader {
             throw new IllegalArgumentException();
         }
         FileLoader fl = new FileLoader();
+        System.out.println(fl.loadFile("html", filename));
         return fl.loadFile("html", filename);
     }
 
@@ -52,7 +54,10 @@ public class FileLoader {
             br = new BufferedReader(new InputStreamReader(resource.getInputStream()));
             StringBuilder sb = new StringBuilder();
             String content = br.readLine();
+
             while (content != null) {
+                byte[] ptext = content.getBytes(StandardCharsets.ISO_8859_1);
+                content = new String(ptext, StandardCharsets.UTF_8);
                 sb.append(content);
                 content = br.readLine();
             }
