@@ -11,14 +11,24 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.StringReader;
 
-
+/**
+ * Controller used for POST HTTP requests.
+ */
 @CrossOrigin
 @RestController
 public class PostController {
 
+    /**
+     * The STB service.
+     */
     @Autowired
     private STBService stbService;
 
+    /**
+     * Method used for /stb23/insert route.
+     * @param xmlStream The XML stream given as request body.
+     * @return The XML result.
+     */
     @PostMapping(value = "/stb23/insert", consumes = "application/xml")
     public String insert(@RequestBody String xmlStream) {
         STBValidator stbv = new STBValidator();

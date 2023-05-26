@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"fr.univrouen.stb23v1"},{"l":"fr.univrouen.stb23v1.controller"},{"l":"fr.univrouen.stb23v1.model"},{"l":"fr.univrouen.stb23v1.repository"},{"l":"fr.univrouen.stb23v1.service"},{"l":"fr.univrouen.stb23v1.util"}];updateSearchResults();
