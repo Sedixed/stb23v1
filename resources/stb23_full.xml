@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stb>
+    <title>STB complète</title>
+    <date>2023-05-22</date>
+    <version>1.8</version>
+    <client>
+        <entity>Matmut</entity>
+        <person gender="Mr" lastname="Razowski">Bob</person>
+        <mail>razowski@matmut.fr</mail>
+        <mail>razowski@matmutpro.fr</mail>
+        <mail>bob.razowski@matmut.fr</mail>
+        <tel>01 23 45 67 89</tel>
+        <tel>+33 6 95 30 14 74</tel>
+    </client>
+    <description>Une STB pas si minimaliste que ça</description>
+
+    <team>
+        <member>
+            <person lastname="Gordon">Mick</person>
+            <mail>gordon@doom.com</mail>
+            <function>Préparation du café</function>
+        </member>
+        <member>
+            <person gender="M." lastname="Obama">Barack</person>
+            <mail>shrek@heynow.com</mail>
+            <function>Le président</function>
+            <function>Le père de famille</function>
+        </member>
+        <member>
+            <person gender="Miss" lastname="Benhara">Mélissandre</person>
+            <mail>shrek@heynow.com</mail>
+            <function>Le régime</function>
+            <function>Cacher des sucreries dans sa chambre</function>
+        </member>
+    </team>
+    <features>
+        <feature name="IA pour le café" number="1" section="1">
+            <description>Réaliser une IA pour faire les meilleurs Espresso</description>
+            <priority>1</priority>
+        </feature>
+        <feature name="Livraison de grains de café" number="2" section="1">
+            <description>Effectuer la livraison du café à la Matmut</description>
+            <priority>3</priority>
+            <delivery>2023-06-03</delivery>
+            <comment>Dépêchez-vous, on a plus de café</comment>
+        </feature>
+        <feature name="Digestion du café" number="1" section="2">
+            <description>Digérer les quantités de café consommées</description>
+            <priority>1</priority>
+            <comment>Mal au ventre ?</comment>
+        </feature>
+    </features>
+</stb>

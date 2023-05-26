@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "cd5bd200-7505-43f7-9954-1482d3e6c6aa",
+		"name": "stb23_guerrier_lovicourt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21530208"
+	},
+	"item": [
+		{
+			"name": "home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}",
+					"host": [
+						"{{server}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "help",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}help",
+					"host": [
+						"{{server}}help"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert-minimalist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<stb>\r\n  <title>STB minimaliste</title>\r\n  <date>2023-05-22</date>\r\n  <version>1.8</version>\r\n  <client>\r\n    <entity>Matmut</entity>\r\n    <person lastname=\"Razowski\">Bob</person>\r\n    <mail>razowski@matmut.fr</mail>\r\n  </client>\r\n  <description>Une STB aussi minimaliste que possible</description>\r\n  \r\n  <team>\r\n    <member>\r\n      <person lastname=\"Gordon\">Mick</person>\r\n      <mail>gordon@doom.com</mail>\r\n      <function>Préparation du café</function>\r\n    </member>\r\n    <member>\r\n      <person lastname=\"Obama\">Barack</person>\r\n      <mail>shrek@heynow.com</mail>\r\n      <function>Le président</function>\r\n    </member>\r\n  </team>\r\n  <features>\r\n    <feature name=\"IA pour le café\" number=\"1\" section=\"1\">\r\n      <description>Réaliser une IA pour faire les meilleurs Espresso</description>\r\n      <priority>1</priority>\r\n    </feature>\r\n  </features>\r\n</stb>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}stb23/insert",
+					"host": [
+						"{{server}}stb23"
+					],
+					"path": [
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert-full",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<stb>\r\n    <title>STB complète</title>\r\n    <date>2023-05-22</date>\r\n    <version>1.8</version>\r\n    <client>\r\n        <entity>Matmut</entity>\r\n        <person gender=\"Mr\" lastname=\"Razowski\">Bob</person>\r\n        <mail>razowski@matmut.fr</mail>\r\n        <mail>razowski@matmutpro.fr</mail>\r\n        <mail>bob.razowski@matmut.fr</mail>\r\n        <tel>01 23 45 67 89</tel>\r\n        <tel>+33 6 95 30 14 74</tel>\r\n    </client>\r\n    <description>Une STB pas si minimaliste que ça</description>\r\n\r\n    <team>\r\n        <member>\r\n            <person lastname=\"Gordon\">Mick</person>\r\n            <mail>gordon@doom.com</mail>\r\n            <function>Préparation du café</function>\r\n        </member>\r\n        <member>\r\n            <person gender=\"M.\" lastname=\"Obama\">Barack</person>\r\n            <mail>shrek@heynow.com</mail>\r\n            <function>Le président</function>\r\n            <function>Le père de famille</function>\r\n        </member>\r\n        <member>\r\n            <person gender=\"Miss\" lastname=\"Benhara\">Mélissandre</person>\r\n            <mail>shrek@heynow.com</mail>\r\n            <function>Le régime</function>\r\n            <function>Cacher des sucreries dans sa chambre</function>\r\n        </member>\r\n    </team>\r\n    <features>\r\n        <feature name=\"IA pour le café\" number=\"1\" section=\"1\">\r\n            <description>Réaliser une IA pour faire les meilleurs Espresso</description>\r\n            <priority>1</priority>\r\n        </feature>\r\n        <feature name=\"Livraison de grains de café\" number=\"2\" section=\"1\">\r\n            <description>Effectuer la livraison du café à la Matmut</description>\r\n            <priority>3</priority>\r\n            <delivery>2023-06-03</delivery>\r\n            <comment>Dépêchez-vous, on a plus de café</comment>\r\n        </feature>\r\n        <feature name=\"Digestion du café\" number=\"1\" section=\"2\">\r\n            <description>Digérer les quantités de café consommées</description>\r\n            <priority>1</priority>\r\n            <comment>Mal au ventre ?</comment>\r\n        </feature>\r\n    </features>\r\n</stb>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}stb23/insert",
+					"host": [
+						"{{server}}stb23"
+					],
+					"path": [
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resume-html",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}stb23/resume",
+					"host": [
+						"{{server}}stb23"
+					],
+					"path": [
+						"resume"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resume-xml",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}stb23/resume/xml",
+					"host": [
+						"{{server}}stb23"
+					],
+					"path": [
+						"resume",
+						"xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail-xml",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}stb23/xml/2",
+					"host": [
+						"{{server}}stb23"
+					],
+					"path": [
+						"xml",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail-html",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}stb23/html/2",
+					"host": [
+						"{{server}}stb23"
+					],
+					"path": [
+						"html",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-full",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{server}}stb23/delete/2",
+					"host": [
+						"{{server}}stb23"
+					],
+					"path": [
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "https://stb23-sedixed.cleverapps.io/",
+			"type": "string"
+		}
+	]
+}

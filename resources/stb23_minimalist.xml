@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stb>
+  <title>STB minimaliste</title>
+  <date>2023-05-22</date>
+  <version>1.8</version>
+  <client>
+    <entity>Matmut</entity>
+    <person lastname="Razowski">Bob</person>
+    <mail>razowski@matmut.fr</mail>
+  </client>
+  <description>Une STB aussi minimaliste que possible</description>
+  
+  <team>
+    <member>
+      <person lastname="Gordon">Mick</person>
+      <mail>gordon@doom.com</mail>
+      <function>Préparation du café</function>
+    </member>
+    <member>
+      <person lastname="Obama">Barack</person>
+      <mail>shrek@heynow.com</mail>
+      <function>Le président</function>
+    </member>
+  </team>
+  <features>
+    <feature name="IA pour le café" number="1" section="1">
+      <description>Réaliser une IA pour faire les meilleurs Espresso</description>
+      <priority>1</priority>
+    </feature>
+  </features>
+</stb>
