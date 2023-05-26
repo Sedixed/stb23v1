@@ -77,6 +77,7 @@ public class STBService {
             sb.append("</stb>");
         }
         sb.append("</result>");
+        System.out.println(sb.toString());
         return sb.toString();
     }
 
